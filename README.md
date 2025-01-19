@@ -18,8 +18,9 @@ if needed, change `DOMAINS` or `PATHS` to add other websites or paths to check.
 
 run the command:
 
-`npm run start --csv-path <some csv path>`
+`npm run start -- --csv-path <some csv path>`
 
 
+- Notice the '--' before the CLI option, it is required!
 - The application defaults to running the './csvExample.csv'  file, but if needed you can leverage the option `--csv-path` to pass another CSV path that comply with the required structure
 
