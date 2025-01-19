@@ -1,0 +1,20 @@
+{
+  "name": "snyk_crawler_exercise",
+  "author": "Guilherme Mazzei",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "generateCsvExample": "node ./utils/csvDataCreator.js",
+    "start": "node ./src/app.js"
+  },
+  "keywords": [
+    "crawler",
+    "snyk"
+  ],
+  "license": "ISC",
+  "description": "Solving Snyk crawler exercise",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "csv-parser": "^3.1.0"
+  }
+}
