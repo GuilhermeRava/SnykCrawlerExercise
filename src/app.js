@@ -187,7 +187,7 @@ main()
           return "";
         }
         return pathObject.reduce((acc, path) => {
-          acc += `\n\t\t${path}`;
+          acc += `\n\t${path}`;
           return acc;
         }, BlockMessage);
       };
@@ -195,39 +195,39 @@ main()
       outputMessage += `
 Results for ${key}:
   Status codes:
-    ${Object.entries(statusCodes).reduce((acc, [statusCode, quantity]) => {
-      acc += `${statusCode}:\t\t${quantity}\n\t\t`;
-      return acc;
-    }, "")}
-  ${outputUrlPathResult(
-    "Valid paths:          (200 HTTP Code):",
-    validPaths
-  )}
-  ${outputUrlPathResult(
-    "Requires Auth paths   (401 HTTP Code):",
-    requiresAuthPaths
-  )}
-  ${outputUrlPathResult(
-    "Forbidden paths       (403 HTTP Code):",
-    forbiddenPaths
-  )}
-  ${outputUrlPathResult(
-    "Not found paths       (404 HTTP Code):",
-    invalidPaths
-  )}
-  ${outputUrlPathResult("Error paths           (-1 Code):", errorPaths)}
+${Object.entries(statusCodes).reduce((acc, [statusCode, quantity]) => {
+  acc += `\t${statusCode}:\t${quantity}\n`;
+  return acc;
+}, "")}
+${outputUrlPathResult(
+  "  Valid paths:          (200 HTTP Code):",
+  validPaths
+)}
+${outputUrlPathResult(
+  "  Requires Auth paths   (401 HTTP Code):",
+  requiresAuthPaths
+)}
+${outputUrlPathResult(
+  "  Forbidden paths       (403 HTTP Code):",
+  forbiddenPaths
+)}
+${outputUrlPathResult(
+  "  Not found paths       (404 HTTP Code):",
+  invalidPaths
+)}
+${outputUrlPathResult("  Error paths           (-1 Code):", errorPaths)}
 ----\n`;
     });
 
     // handle summary
     outputMessage += `
 Results summary:
-  Total domains tested: ${Object.keys(parsedDomains).length}
-  Total paths tested:   ${QUEUE.length}
-  Time to init workers: ${(
+  Total domains tested\t${Object.keys(parsedDomains).length}
+  Total paths tested:\t${QUEUE.length}
+  Time to init workers:\t${(
     performance.getEntriesByName("workers-init")[0].duration / 1000
   ).toFixed(2)} seconds
-  Time to parse all domains: ${(
+  Time to parse all domains\t${(
     performance.getEntriesByName("process-jobs")[0].duration / 1000
   ).toFixed(2)} seconds
 `;
