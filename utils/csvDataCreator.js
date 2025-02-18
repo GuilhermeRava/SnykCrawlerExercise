@@ -2,13 +2,7 @@ const path = require("path");
 const fs = require("fs");
 
 const DOMAINS = [
-  "https://snyk.io",
-  "https://example.com",
-  "https://plus.probely.app",
-  "https://secret.probely.com",
-  "https://wordpress.org",
-  "https://www.google.com",
-  "https://www.microsoft.com",
+  "https://private.barao.pt",
 ];
 
 const PATHS = [
